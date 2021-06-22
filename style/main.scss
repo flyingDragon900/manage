@@ -1,0 +1,333 @@
+@import "variables";
+// MIXIN
+@mixin df($direction) {
+  display: flex;
+  justify-content: $direction;
+  align-items: center;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: $BeVietnam;
+  background-color: $VaryLightGray;
+}
+.container {
+  max-width: $Desktop;
+  margin: auto;
+  border: 2px solid red;
+}
+li,
+a {
+  list-style: none;
+  text-decoration: none;
+}
+.btn {
+  background-color: $BrightRed;
+  color: $VeryPaleRed;
+  font-weight: 700;
+  padding: 0.7rem 1.7rem;
+  border: none;
+  border-radius: 26px;
+  box-shadow: 1px 6px $BrightRedOP;
+  cursor: pointer;
+  transition: 0.3s ease-out;
+}
+.btn:hover {
+  background-color: $BrightRedOP;
+  color: white;
+}
+// HEADER STARTS
+.navbar {
+  @include df(space-between);
+  padding: 1.25rem 0;
+
+  &__menu ul {
+    @include df(initial);
+  }
+
+  &__menu li {
+    margin: 0 1rem;
+  }
+
+  &__menu a {
+    color: $VeryDarkBlue;
+    font-size: $Fontsize;
+    font-weight: 400;
+  }
+
+  &__menu a:hover {
+    color: $DarkGrayishBlue;
+  }
+  .humburger {
+    display: none;
+  }
+  &__btn {
+  }
+}
+// HEADER ENDS
+
+// Hero starts
+.hero {
+  @include df(space-between);
+  // flex-wrap: wrap;
+
+  &__left {
+    flex-basis: 75%;
+    h1 {
+      font-size: 3rem;
+    }
+    p {
+      color: $DarkGrayishBlue;
+      margin: 2rem 0;
+    }
+  }
+  &__right {
+    flex-basis: 25%;
+  }
+}
+// Hero ends
+
+// content starts
+.content {
+  @include df(space-between);
+  align-items: initial;
+  padding-top: 2rem;
+
+  &__left {
+    flex-basis: 60%;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+  p {
+    width: 58%;
+    letter-spacing: 1.2px;
+    line-height: 1.5;
+    margin-top: 2.2rem;
+    font-weight: 400;
+    color: $DarkGrayishBlue;
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    flex-basis: 40%;
+    &__hp {
+      span {
+        background-color: $BrightRed;
+        width: 4rem;
+        height: 2.5rem;
+        border-radius: 30px;
+        @include df(center);
+        padding: 5px 10px;
+        margin-right: 2rem;
+        display: inline-flex;
+        transform: translate(-6rem, 2.1rem);
+      }
+      h2 {
+        color: $DarkBlue;
+      }
+    }
+    p {
+      color: $DarkGrayishBlue;
+      margin: 1rem auto 2rem 0;
+      letter-spacing: 1.2px;
+      line-height: 1.5;
+      margin-top: 2.2rem;
+      font-weight: 400;
+      width: auto;
+    }
+  }
+}
+// content ends
+
+// Testimmonial starts
+.testimonial{
+  @include df(space-between);
+  flex-direction: column;
+
+  &__heading{
+    padding: 4rem;
+    font-size: 2rem;
+    color: $DarkBlue;
+  }
+
+  &__content{
+    @include df(space-between);
+    text-align: center;
+    flex-wrap: wrap;
+
+    &__inside{
+      background-color: $DarkGrayishBlueOP;
+      width: 32%;
+      height: 230px;
+    }
+    &__inside img{
+      width: 5rem;
+      transform: translateY(-2.6rem);
+    }
+    &__inside h4{
+      margin: 1rem 0;
+      font-size: 1.2rem;
+    }
+    &__inside p{
+      margin: 1rem;
+      color: $DarkGrayishBlue;
+      font-weight: 700;
+    }
+  }
+
+  &__btn{
+    padding: 2rem 0;
+  }
+}
+// Testimmonial ends
+
+// footer avobe
+.footer__above{
+  background-color: $BrightRed;
+
+  &__content{
+    @include df(space-between);
+    width: $Desktop;
+    margin: auto;
+    padding: 3rem 0;
+
+    &__left h1{
+      color: white;
+      font-size: 3rem;
+    }
+    &__btn .btn{
+      background-color: white;
+      color: $BrightRed;
+    }
+  }
+  
+}
+@media (max-width: $Mobile) and (min-width: 0) {
+  .container {
+    max-width: 370px;
+    margin: auto;
+  }
+  .navbar {
+    &__menu {
+      display: none;
+    }
+    &__btn {
+      display: none;
+    }
+    .humburger {
+      display: block;
+    }
+    .bar {
+      background-color: black;
+      height: 5px;
+      width: 38px;
+      border-radius: 4px;
+    }
+    .bar::after,
+    .bar::before {
+      content: "";
+      background-color: black;
+      height: 5px;
+      width: 38px;
+      border-radius: 4px;
+      position: absolute;
+    }
+    .bar::before {
+      top: 26px;
+    }
+    .bar::after {
+      top: 44px;
+    }
+  }
+  // hero starts
+  .hero {
+    flex-direction: column-reverse;
+
+    &__left {
+      text-align: center;
+      padding-bottom: 4rem;
+      h1 {
+        font-size: 2.5rem;
+      }
+      p {
+        color: $DarkGrayishBlue;
+        margin: 2rem 0;
+        font-size: 1rem;
+      }
+      &__btn .btn {
+      }
+    }
+    &__right img {
+      width: 100%;
+    }
+  }
+
+  // content starts
+  .content {
+    flex-direction: column;
+
+    &__left{
+      text-align: center;
+
+      h1{
+        font-size: 2rem;
+        // margin: .2rem;
+      }
+      p{
+        width: auto;
+        margin: 1rem .5rem;
+      }
+    }
+    &__right {
+      width: auto;
+
+      &__hp {
+        span {
+          margin-right: 0;
+          transform: translate(0rem, 2.4rem);
+        }
+        h2 {
+          text-align: center;
+          font-size: .9rem;
+          margin-left: 1.5rem;
+          padding: 0.7rem 0;
+          background-color: $BrightRedOP;
+          border-radius: 10px;
+        }
+
+        p {
+          width: auto;
+          margin:1rem;
+        }
+      }
+    }
+  }
+
+  // testimonial starts
+  .testimonial{
+
+    &__heading{
+      font-size: 1.5rem;
+      padding: 3rem .5rem;
+      margin-bottom: 1rem;
+    }
+    &__content{
+      flex-direction: column;
+
+      &__inside{
+        width: auto;
+        display: none;
+      }
+      .active{
+        display: block;
+      }
+    }
+  }
+}
